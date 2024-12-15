@@ -19,7 +19,7 @@ const TabWithDynamicContent: React.FC<TabWithDynamicContentProps> = ({
   }
 
   const getContentComponent = (path: string) =>
-    dynamic(() => import(`../../app/${path}/page`), { ssr: false })
+    dynamic(() => import(`../../../app/${path}/page`), { ssr: false })
 
   return (
     <div>

@@ -35,3 +35,26 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # tab-ui
+
+
+app/
+├── components/         # 재사용 가능한 UI 컴포넌트
+├── hooks/              # Custom hooks
+│   ├── useAuth.js
+│   ├── useFetch.js
+├── pages/              # 페이지 단위 컴포넌트
+│   ├── home.js
+│   ├── about.js
+├── services/           # API 호출 및 비즈니스 로직
+│   ├── api.js
+│   ├── authService.js
+├── store/              # Redux 상태 관리
+│   ├── slices/         
+│   │   ├── userSlice.js
+│   ├── middlewares/    # (옵션) Custom middleware
+│   ├── index.js        # Redux store 설정
+├── utils/              # 헬퍼 함수
+│   ├── dateUtils.js
+│   ├── numberUtils.js
+├── layout.js           # Next.js 레이아웃 파일
+├── page.js             # 메인 엔트리 파일

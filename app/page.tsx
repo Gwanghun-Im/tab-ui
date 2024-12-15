@@ -1,6 +1,6 @@
 /** @format */
 
-import TabWithDynamicContent from "@/component/tab"
+import TabWithDynamicContent from "@/app/component/tab"
 
 const HomePage = () => {
   const tabs = [
