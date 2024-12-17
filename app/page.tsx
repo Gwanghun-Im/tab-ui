@@ -1,5 +1,3 @@
-/** @format */
-
 import TabWithDynamicContent from "@/app/component/tab"
 
 const HomePage = () => {

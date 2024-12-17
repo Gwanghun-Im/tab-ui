@@ -9,17 +9,14 @@ interface TabWithDynamicContentProps {
   tabs: { id: string; label: string; path: string }[]
 }
 
-const TabWithDynamicContent: React.FC<TabWithDynamicContentProps> = ({
-  tabs,
-}) => {
+const TabWithDynamicContent: React.FC<TabWithDynamicContentProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id)
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId)
   }
 
-  const getContentComponent = (path: string) =>
-    dynamic(() => import(`../../../app/${path}/page`), { ssr: false })
+  const getContentComponent = (path: string) => dynamic(() => import(`../../../app/${path}/page`), { ssr: false })
 
   return (
     <div>
@@ -45,12 +42,7 @@ const TabWithDynamicContent: React.FC<TabWithDynamicContentProps> = ({
       {/* 탭 콘텐츠 */}
       <div style={{ padding: "20px" }}>
         {tabs.map(
-          (tab) =>
-            tab.id === activeTab && (
-              <div key={tab.id}>
-                {React.createElement(getContentComponent(tab.path))}
-              </div>
-            )
+          (tab) => tab.id === activeTab && <div key={tab.id}>{React.createElement(getContentComponent(tab.path))}</div>,
         )}
       </div>
     </div>

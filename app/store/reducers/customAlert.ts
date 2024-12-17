@@ -1,8 +1,8 @@
 // app/store/reducers/customAlertSlice.ts
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 interface CustomAlertState {
-  open:boolean
+  open: boolean
   title: string
   reLogin?: boolean
   message: string
@@ -17,8 +17,8 @@ const initialState: CustomAlertState = {
   title: "",
   message: "",
   confirmText: "확인",
-  cancleText: "취소"
-};
+  cancleText: "취소",
+}
 
 const customAlertSlice = createSlice({
   name: "customAlert",
@@ -37,8 +37,8 @@ const customAlertSlice = createSlice({
       state.open = false
     },
   },
-});
+})
 
 // export const getCustomAlert = (state: any) => state.customAlert
-export const { openAlert, hideAlert } = customAlertSlice.actions;
-export default customAlertSlice.reducer;
+export const { openAlert, hideAlert } = customAlertSlice.actions
+export default customAlertSlice.reducer

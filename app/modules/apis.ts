@@ -3,11 +3,15 @@
 import { defaultApiService } from "./api-base"
 
 defaultApiService.interceptors.request.use(
-  config => { return config },
-  error => () => {},
+  (config) => {
+    return config
+  },
+  (error) => () => {},
 )
 
 defaultApiService.interceptors.response.use(
-  async config => {return config},
-  async error => () => {},
+  async (config) => {
+    return config
+  },
+  async (error) => () => {},
 )
