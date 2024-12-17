@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
+    "axios": "1.6.5",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "redux": "^5.0.1",
-    "redux-devtools-extension": "^2.13.9"
+    "redux": "5.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
