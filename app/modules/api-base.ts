@@ -3,8 +3,10 @@ import { headers } from "next/headers"
 
 export const defSet: {
   timeOut: number
+  defaultUrl: string
 } = {
   timeOut: 40000,
+  defaultUrl: process.env.NEXT_PUBLIC_API_URL,
 }
 
 export const setBaseOptions = (option: object) => {

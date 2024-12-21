@@ -1,12 +1,12 @@
 "use client"
 
-import { defaultApiService } from "./api-base"
+import { defaultApiService, setRequestError } from "./api-base"
 
 defaultApiService.interceptors.request.use(
   (config) => {
     return config
   },
-  (error) => () => {},
+  (error) => setRequestError,
 )
 
 defaultApiService.interceptors.response.use(

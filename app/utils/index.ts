@@ -213,6 +213,18 @@ export const encodeJsonData = (data: any): any => {
 }
 
 /**
+ * @description 쿠키에서 데이터 가져오기
+ * @author 임광훈
+ * @param name
+ * @returns
+ */
+export const getCookie = (name: string) => {
+  const cookies = document.cookie.split(";")
+  const cookie = cookies.find((row) => row.startsWith(`${name}=`))
+  return cookie ? JSON.parse(decodeURIComponent(cookie.split("=")[1])) : null
+}
+
+/**
  *  예금계산
  *  @param {number} period 예금 기간
  *  @param {number} money 예치금
