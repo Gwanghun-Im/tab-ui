@@ -1,17 +1,30 @@
 import axios from "axios"
 import { headers } from "next/headers"
 
+export interface ApiResponseTypes {
+  message: string
+  messageCode: string
+  data: any
+  result: "SUCCESS" | "FAIL"
+  bizException: boolean
+}
+
+export const FetchType = {
+  DF: "default",
+}
+export type FetchTypes = (typeof FetchType)[keyof typeof FetchType]
+
 export const defSet: {
   timeOut: number
   defaultUrl: string
 } = {
   timeOut: 40000,
-  defaultUrl: process.env.NEXT_PUBLIC_API_URL,
+  defaultUrl: process.env.NEXT_PUBLIC_API_URL ?? "",
 }
 
-export const setBaseOptions = (option: object) => {
+export const setBaseOptions = (apiType: FetchTypes) => {
   const options = {
-    ...option,
+    apiType,
     headers: {},
     timeout: defSet.timeOut,
   }
@@ -19,7 +32,32 @@ export const setBaseOptions = (option: object) => {
   return options
 }
 
-export const defaultApiService = axios.create({ ...setBaseOptions({}) })
+export const setContentOptions = (options: any): any => {
+  const contentType = options["contentType"] && options["contentType"].toUpperCase()
+  if (!options["headers"]) options.headers = {}
+  if (!options?.headers["Content-Type"]) {
+    switch (contentType) {
+      case "FORM":
+        options.headers["Content-type"] = "application/x-www-form-urlencoded"
+        break
+      case "FILE":
+        options.headers["Content-type"] = "multipart/form-data"
+        break
+      case "BLOB":
+        options.headers["Content-type"] = "application/json;charset=UTF-8"
+        break
+      default:
+        options.headers["Content-type"] = "application/json"
+        break
+    }
+  }
+
+  options.validateStatus = (status: number): boolean => {
+    return status >= 200 && status < 500
+  }
+
+  return options
+}
 
 const axiosInstance = axios.create({
   baseURL: "https://api.example.com", // API의 기본 URL
@@ -77,4 +115,4 @@ export const setRequestError = async (error: any) => {
   return Promise.reject(error)
 }
 
-export default axiosInstance
+export const defaultApiService = axios.create({ ...setBaseOptions(FetchType.DF) })

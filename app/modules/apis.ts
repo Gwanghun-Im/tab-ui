@@ -1,6 +1,6 @@
 "use client"
 
-import { defaultApiService, setRequestError } from "./api-base"
+import { ApiResponseTypes, defaultApiService, setContentOptions, setRequestError } from "./api-base"
 
 defaultApiService.interceptors.request.use(
   (config) => {
@@ -15,3 +15,6 @@ defaultApiService.interceptors.response.use(
   },
   async (error) => () => {},
 )
+
+export const defaultFetchApiService = (options: any): Promise<ApiResponseTypes> =>
+  defaultApiService(setContentOptions(options))
