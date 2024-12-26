@@ -13,6 +13,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "1.6.5",
+    "lodash": "^4.17.21",
+    "lodash-global": "^1.0.2",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -29,6 +31,7 @@
     "@storybook/nextjs": "^8.4.7",
     "@storybook/react": "^8.4.7",
     "@storybook/test": "^8.4.7",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
