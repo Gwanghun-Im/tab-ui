@@ -1,3 +1,4 @@
+"use client"
 import TabWithDynamicContent from "@/app/component/tab"
 
 const HomePage = () => {

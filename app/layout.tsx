@@ -1,4 +1,5 @@
 // app/layout.tsx
+"use client"
 import { ReactNode } from "react"
 import { Provider } from "react-redux"
 import store from "./store" // Redux store 경로를 확인하세요
