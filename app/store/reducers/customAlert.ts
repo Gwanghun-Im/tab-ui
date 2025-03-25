@@ -13,7 +13,7 @@ interface CustomAlertState {
 }
 
 const initialState: CustomAlertState = {
-  open: false,
+  open: true,
   title: "",
   message: "",
   confirmText: "확인",

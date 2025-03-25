@@ -232,7 +232,12 @@ export const getCookie = (name: string) => {
  *  @param {string} depositType 예금방법(1:단리,0:복리)
  *  @return {Object} 계산 결과 Obj
  */
-export const fnCal1 = (period, money, rate, depositType) => {
+export const fnCal1 = (
+  period: number | string,
+  money: number | string,
+  rate: number,
+  depositType: "1" | "0",
+): object => {
   let result = []
 
   let model = {
@@ -272,6 +277,11 @@ export const fnCal1 = (period, money, rate, depositType) => {
     result.push(model1)
 
     //비과세
+    title = "비과세"
+    b_interest = Math.floor(before * period)
+    a_interest = Math.floor(before * period)
+    total_money = Math.floor(money + before * period)
+    sum_mon = Math.floor(total_money - a_interest)
     let model2 = {
       title,
       b_interest,
@@ -279,11 +289,6 @@ export const fnCal1 = (period, money, rate, depositType) => {
       total_money,
       sum_mon,
     }
-    title = "비과세"
-    b_interest = Math.floor(before * period)
-    a_interest = Math.floor(before * period)
-    total_money = Math.floor(money + before * period)
-    sum_mon = Math.floor(total_money - a_interest)
     result.push(model2)
   } else {
     before = parseInt(money * Math.pow(1 + rate / 100 / 12, period)) // 세전이자
@@ -332,7 +337,7 @@ export const fnCal1 = (period, money, rate, depositType) => {
  *  @param {number} rate 예금 이율
  *  @return {Object}
  */
-export const fnCal2 = (period, money, rate) => {
+export const fnCal2 = (period: number, money: number, rate: number): object => {
   let result = []
 
   let model = {

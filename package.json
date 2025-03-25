@@ -11,15 +11,21 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.3.1",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "1.6.5",
+    "formik": "^2.4.6",
     "lodash": "^4.17.21",
     "lodash-global": "^1.0.2",
+    "mui": "^0.0.1",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "redux": "5.0.1"
+    "redux": "5.0.1",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
